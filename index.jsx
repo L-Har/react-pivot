@@ -143,7 +143,9 @@ module.exports = createReactClass({
 
         { Object.keys(this.state.solo).map(function (title) {
           var value = self.state.solo[title]
-
+          var div1 = document.createElement("DIV");
+          div1.innerHTML = value;
+          var cleaned_text = div1.textContent || div1.innerText || "";
           return (
             <div
               style={{clear: 'both'}}
@@ -154,7 +156,7 @@ module.exports = createReactClass({
                 onClick={partial(self.clearSolo, title)} >
                 &times;
               </span>
-              {title}: {value}
+              {title}: {cleaned_text}
             </div>
           )
         }) }
